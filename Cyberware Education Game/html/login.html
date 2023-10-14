@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, p, label, input {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set a background color and font family for the entire page */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the header with a background color, centered text, and padding */
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Style the main content container with a white background, centered text, and padding */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Style the login form */
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* Style form labels */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Style form inputs */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* Change button color on hover */
+            input[type="submit"]:hover {
+                background-color: #555;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LoginPage</h1>
+    </header>
+
+    <div class="container">
+        <h2>Login</h2>
+        <!-- Add your login form or content here -->
+        <form>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" id="login" value="Login">
+        </form>
+
+        <!-- Add a "Sign Up" button linking to the sign-up page -->
+        <a href="signup.html" class="signup-button">Sign Up</a>
+        <a href="ceg.html" class="back-to-home">Back to Home</a>
+    </div>
+
+    <footer>
+        &copy; 2023 My Simple Website
+    </footer>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getDatabase, update, ref } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyB8YjBIU2ERX14r-dldk_kYwTFb-d3aPK4",
+        authDomain: "cyberwareedugame.firebaseapp.com",
+        databaseURL: "https://cyberwareedugame-default-rtdb.firebaseio.com/",
+        projectId: "cyberwareedugame",
+        storageBucket: "cyberwareedugame.appspot.com",
+        messagingSenderId: "921167365550",
+        appId: "1:921167365550:web:2b99429cfc06963debf43f"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginButton = document.getElementById('login');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        loginButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default form submission
+
+            var email = emailInput.value;
+            var password = passwordInput.value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    const dt = Date.now();
+
+                    update(ref(database, 'users/' + user.uid), {
+                        last_login: dt,
+                    })
+                    // Redirect to the home page after successful login
+                    window.location.href = "ceg.html";
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/auth.user
+                    const uid = user.uid;
+                    // ...
+                } else {
+                    // User is signed out
+                    // ...
+                }
+            });
+        });
+    });
+</script>
+</html>
