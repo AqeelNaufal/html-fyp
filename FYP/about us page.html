@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated About Us Page Using HTML & CSS</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("file:///C:/Users/Acer/FYP/bg4.0.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 2s; /* Add a fade-in animation to the body */
+        }
+        header {
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            animation: slideIn 2s; /* Add a slide-in animation to the container */
+        }
+        
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Add a button hover effect */
+        }
+
+        .cta-button:hover {
+            background-color: #555;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <div class="container">
+        <h2>Welcome To Our Website</h2>
+        <p>We are a group of dedicated students from Polytechnic Ungku Omar, currently in our final year of the Diploma in Digital Technology (DDTS6) program. As part of our educational journey, we have embarked on an exciting and innovative project.</p>
+        
+        <button class="cta-button" id="learnMore">Learn More</button>
+        
+        <div id="project" class="hidden">
+            <h2>Our Project: CYBERWAREEDUGAME</h2>
+            <p>Our final year project, titled "CYBERWARE EDU GAME," is a web-based game that represents the culmination of our efforts and knowledge gained throughout our program. This educational game is designed to make learning about digital technology and practice defense strategies against cybercrime. Through CYBERWARE EDU GAME, we aim to inspire a passion for technology in our peers and those who explore our creation.</p>
+        </div>
+        
+        <div id="team" class="hidden">
+            <h2>Meet the Team</h2>
+            <p>
+                <strong>EN. NIZAM BIN KAMARULL BAHARIN</strong> - Project Supervisor<br>
+                <strong>AHMAD HAKIMI</strong> - DEVELOPER<br>
+                <strong>DEENESH</strong> - DEVELOPER<br>
+                <strong>AQEEL NAUFAL</strong> - DEVELOPER
+            </p>
+        </div>
+        
+        <!-- Link to the Home page (index.html) -->
+        <a href="homepage.html">Back to Home</a>
+    </div>
+
+    <script>
+        // JavaScript to toggle the display of project and team sections and hide the button
+        document.getElementById("learnMore").addEventListener("click", function () {
+            var project = document.getElementById("project");
+            var team = document.getElementById("team");
+            var learnMoreButton = document.getElementById("learnMore");
+            
+            if (project.classList.contains("hidden")) {
+                project.classList.remove("hidden");
+                team.classList.remove("hidden");
+                learnMoreButton.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

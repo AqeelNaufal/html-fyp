@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, p, label, input, button, a {
+            margin: 0;
+            padding: 0;
+            text-decoration: none; /* Remove underlines for links */
+        }
+
+        /* Set a background image, background size, and font family for the entire page */
+        body {
+            background-image: url("file:///C:/Users/Acer/FYP/bg3.0.png");
+            background-size: 1800px 700px; /* Adjust to your preference */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Set a background color for the entire page as a fallback */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        /* Style the main content container */
+        .container {
+            padding: 100px;
+            margin: 100px;
+            height: auto;
+            width: 300px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 270px;
+            margin-left: 300px;
+        }
+
+        h2, label, input {
+            font-size: 20px; /* Adjust the font size for title, label, and input */
+            color: white; /* Set text color to white */
+        }
+
+        /* Style the buttons (Login, Sign Up, Back to Home) */
+        .button {
+            font-size: 18px;
+            display: inline-block; /* Display buttons inline */
+            padding: 10px 20px;
+            margin: 5px; /* Adjust spacing between buttons */
+            border: none;
+            cursor: pointer;
+            background-color:darkgray;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        /* Style the buttons on hover */
+        .button:hover {
+            background-color: #0056b3; /* Change the background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <!-- Add your login form or content here -->
+        <form>
+            <label for="email" style="color: white;">Email:</label>
+            <input type="text" id="email" name="email" required style="color: black;"><br><br>
+
+            <label for="password" style="color: white;">Password:</label>
+            <input type="password" id="password" name="password" required style="color: black;"><br><br>
+
+            <button type="submit" id="login" class="button">Login</button>
+        </form>
+
+        <!-- "Sign Up" and "Back to Home" buttons with the same style as "Login" -->
+        <a href="signup page.html" class="button">Sign Up</a>
+        <a href="homepage.html" class="button">Back to Home</a>
+    </div>
+
+    <footer>
+        
+    </footer>
+</body>
+<script type="module">
+    // Your JavaScript code here...
+</script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: lavenderblush;
+            display: flex;
+        }
+
+        /* Left side with background image */
+        .left-side {
+            flex: 1;
+            background-image: url("C:/Users/Acer/FYP/contact us bg.png"); /* Update with the correct image path */
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center bottom; /* Center the background image at the bottom */
+        }
+
+        /* Right side with contact form */
+        .right-side {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Add your styles for the contact form here */
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Back button style */
+        .back-button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Navigation (if needed) -->
+    <header>
+    
+    </header>
+    
+    <!-- Left side with background image -->
+    <div class="left-side"></div>
+
+    <!-- Right side with contact form -->
+    <div class="right-side">
+        <div class="contact-form">
+            <form action="submit_form.php" method="post">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="submit-button">
+                    <input type="button" value="Back" class="back-button" onclick="goBack();">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer (if needed) -->
+    <footer>
+        <!-- Your footer content here... -->
+    </footer>
+
+    <script>
+        function goBack() {
+            window.location.href = "homepage.html";
+        }
+    </script>
+</body>
+</html>

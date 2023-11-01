@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, p, a {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set a background color and font family for the entire page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden; /* Ensure video covers the entire viewport */
+        }
+
+        /* Your existing styles here... */
+
+        /* Add styles for the play button and rectangle box */
+        .play-button-container {
+            position: fixed;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .play-button-rectangle {
+            background-color: green;
+            width: 150px; /* Make the box wider */
+            height: 80px; /* Make the box taller */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+            cursor: pointer;
+            animation: playButtonAnimation 1s infinite;
+        }
+
+        .play-text {
+            color: #fff;
+            font-size: 18px;
+            margin-top: 10px; /* Add some spacing between the text and play button */
+        }
+
+        @keyframes playButtonAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Style the video to cover the entire viewport */
+        video#background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Style the navigation bar */
+        nav {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 10px 0; /* Add some padding to the top and bottom */
+        }
+
+        nav a {
+            background-color: #555; /* Background color for the buttons (darker gray) */
+            color: #fff; /* Text color for buttons (white) */
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px; /* Adjust spacing between buttons */
+            border-radius: 20px;
+            display: inline-block; /* Display buttons inline */
+            border: 2px solid #333; /* Add a border to the buttons */
+        }
+
+        /* Change button color on hover */
+        nav a:hover {
+            background-color: #777; /* Button background color on hover (even darker gray) */
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background Code -->
+    <video autoplay muted loop id="background-video">
+        <source src="C:\Users\Acer\FYP\new.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Header and Navigation -->
+    <header>
+        <!-- Your header content here... -->
+    </header>
+    
+    <nav>
+        <a href="ceg.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="about us page.html">About Us</a>
+        <a href="CONTACT US PAGE.html">Contact</a>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="centered-container">
+        <div class="container">
+            <!-- Your main content here... -->
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Initial box with welcome message -->
+        <div class="welcome-box">
+            <!-- Welcome message content here... -->
+        </div>
+
+        <!-- Additional box initially hidden -->
+        <div id="logout-box" style="display: none;">
+            <p>Do you want to logout?</p>
+            <button id="logout-button">Logout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Your footer content here... -->
+    </footer>
+
+    <!-- Play Button Container -->
+    <div class="play-button-container">
+        <div class="play-button-rectangle">
+            <div class="play-button"></div>
+            <div class="play-text">Play</div> <!-- New line for the text "Play" -->
+        </div>
+    </div>
+
+    <!-- Include the external JavaScript file -->
+    <script>
+        // JavaScript code for Firebase and other functionality...
+    </script>
+</body>
+</html>
